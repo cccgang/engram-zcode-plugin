@@ -1,6 +1,6 @@
 {
   "name": "engram-zcode",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "Engram shared-memory integration for ZCode: SessionStart protocol injection, compaction recovery, memory skill, bundled MCP server, and session-bound write guardrails.",
   "author": { "name": "cccgang" },
   "hooks": "hooks/hooks.json",

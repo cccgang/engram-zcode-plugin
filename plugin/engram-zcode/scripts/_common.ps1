@@ -115,7 +115,11 @@ function Get-EngramContextText {
         # so fetch it with WebClient and decode explicitly as UTF-8.
         $wc = New-Object System.Net.WebClient
         $wc.Encoding = [System.Text.Encoding]::UTF8
-        $json = $wc.DownloadString("$base/context?project=$encoded")
+        # Explicitly request the Pinned section (curated always-visible memories)
+        # and cap the payload size, so passive recall does not depend on version
+        # defaults and injection stays bounded. The server clamps max_bytes to
+        # 65536, truncates UTF-8-safely, and silently ignores bad values.
+        $json = $wc.DownloadString("$base/context?project=$encoded&pinned=10&max_bytes=65536")
         $resp = $json | ConvertFrom-Json
         if ($resp -is [string]) { return $resp }
         if ($resp.context) { return [string]$resp.context }

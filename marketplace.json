@@ -4,7 +4,7 @@
     {
       "name": "engram-zcode",
       "source": "./plugin/engram-zcode",
-      "version": "0.3.3",
+      "version": "0.4.0",
       "description": "Engram shared-memory integration for ZCode: protocol injection, compaction recovery, memory skill, bundled MCP server, session-bound write guardrails",
       "displayName": "Engram ZCode",
       "displayName_i18n": { "zh-CN": "Engram 共享记忆(ZCode)" },

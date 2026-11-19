@@ -15,6 +15,9 @@ This memory is shared with other agents on this machine (Codex etc.), so saved k
 - At the start of related work, call mem_context to recover recent history; call mem_current_project when you need to confirm the resolved project.
 - Before revisiting a decision, bug, or convention, search first with focused terms: mem_search for candidates, mem_timeline for surrounding session context, and mem_get_observation before relying on full content. Search results are previews, not the complete record.
 
+### Pinned memories
+Pinned observations are injected automatically at session start (a "### Pinned" block in the memory context) — no search needed. Pin small, durable, always-useful knowledge (index/pointer memories, user profiles, standing rules): mem_search for the numeric id, then mem_pin (mem_unpin to remove). Keep the set small (~3-8 per project); pin state is local-only, not synced.
+
 ### What to save
 Save only verified, durable, costly-to-reconstruct knowledge: completed bug fixes with root cause, decisions with rationale, discoveries and key constraints, configuration changes, reusable patterns, durable user preferences and constraints.
 Credentials policy (user decision, overrides upstream): secrets/credentials MAY be saved — local-only (never enable Git Sync / Engram Cloud), in personal or global scope, marked 【含凭据】 with source and purpose. Still do NOT save: speculation, raw tool output, routine progress, or duplicates of existing memories.
@@ -41,6 +44,7 @@ If memory tools fail, say so briefly and continue the task; never fabricate memo
 | Confirm the resolved project | mem_current_project |
 | Recover recent work | mem_context |
 | Find prior knowledge | mem_search, then mem_timeline, then mem_get_observation |
+| Pin/unpin always-visible memory | mem_pin / mem_unpin (numeric id from mem_search) |
 | Save durable knowledge | mem_save (What/Why/Where/Learned + type + optional topic_key) |
 | Update an evolving topic | mem_update (with expected_project) |
 | Close or hand off a session | mem_session_summary |

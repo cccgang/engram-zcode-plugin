@@ -6,6 +6,9 @@ You have persistent shared memory via Engram MCP tools (mem_*). Engram is also u
 - At the start of related work, call mem_context to recover recent history; call mem_current_project when you need to confirm the resolved project.
 - Before revisiting a decision, bug, or convention, search first with focused terms: mem_search for candidates, mem_timeline for surrounding session context, and mem_get_observation before relying on full content. Search results are previews, not the complete record.
 
+## Pinned memories
+Pinned observations are injected automatically at session start (a "### Pinned" block in the memory context) — no search needed. Pin small, durable, always-useful knowledge: index/pointer memories, user profiles, standing rules. Use mem_search to find the numeric id, then mem_pin to pin (mem_unpin to remove). Keep the pinned set small (roughly 3-8 per project) — it is paid on every session. Pin state is local to this device and is not synced.
+
 ## What to save
 Save only verified, durable, costly-to-reconstruct knowledge:
 - completed bug fixes with root cause
