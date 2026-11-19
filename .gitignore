@@ -1,0 +1,5 @@
+# Engram ZCode plugin — no build artifacts are produced.
+# Keep logs and editor noise out of the repo.
+*.log
+.idea/
+.vscode/

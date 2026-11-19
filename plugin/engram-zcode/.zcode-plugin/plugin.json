@@ -1,0 +1,17 @@
+{
+  "name": "engram-zcode",
+  "version": "0.3.3",
+  "description": "Engram shared-memory integration for ZCode: SessionStart protocol injection, compaction recovery, memory skill, bundled MCP server, and session-bound write guardrails.",
+  "author": { "name": "cccgang" },
+  "hooks": "hooks/hooks.json",
+  "skills": "./skills",
+  "mcpServers": {
+    "engram": {
+      "command": "D:\\个人\\agent-memory\\bin\\engram.exe",
+      "args": ["mcp", "--tools=agent"],
+      "env": {
+        "ENGRAM_DATA_DIR": "D:\\个人\\agent-memory\\data"
+      }
+    }
+  }
+}

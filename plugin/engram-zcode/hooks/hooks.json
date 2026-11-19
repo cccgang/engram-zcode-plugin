@@ -1,0 +1,79 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear",
+        "hooks": [
+          {
+            "type": "process",
+            "command": "powershell",
+            "args": [
+              "-NoProfile",
+              "-NonInteractive",
+              "-ExecutionPolicy",
+              "Bypass",
+              "-File",
+              "${CLAUDE_PLUGIN_ROOT}/scripts/session-start.ps1"
+            ],
+            "timeoutMs": 15000,
+            "statusMessage": "engram: loading memory protocol"
+          },
+          {
+            "type": "process",
+            "command": "powershell",
+            "args": [
+              "-NoProfile",
+              "-NonInteractive",
+              "-ExecutionPolicy",
+              "Bypass",
+              "-File",
+              "${CLAUDE_PLUGIN_ROOT}/scripts/bind-session.ps1"
+            ],
+            "timeoutMs": 10000,
+            "statusMessage": "engram: binding session"
+          }
+        ]
+      },
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "process",
+            "command": "powershell",
+            "args": [
+              "-NoProfile",
+              "-NonInteractive",
+              "-ExecutionPolicy",
+              "Bypass",
+              "-File",
+              "${CLAUDE_PLUGIN_ROOT}/scripts/post-compaction.ps1"
+            ],
+            "timeoutMs": 15000,
+            "statusMessage": "engram: recovering context after compaction"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "mem_(save|save_prompt|update|delete|session_summary|session_end|session_finalize)$",
+        "hooks": [
+          {
+            "type": "process",
+            "command": "powershell",
+            "args": [
+              "-NoProfile",
+              "-NonInteractive",
+              "-ExecutionPolicy",
+              "Bypass",
+              "-File",
+              "${CLAUDE_PLUGIN_ROOT}/scripts/pre-tool-use.ps1"
+            ],
+            "timeoutMs": 10000,
+            "statusMessage": "engram: binding session for memory write"
+          }
+        ]
+      }
+    ]
+  }
+}
